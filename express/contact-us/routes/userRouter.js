@@ -1,8 +1,7 @@
 const express = require('express')
 const userRouter = express.Router()
+const controller = require('../controllers/contacts')
 
-userRouter.get("/",(req,res,next)=>{
-    res.send("Welcome to ExpressJS")
-})
+userRouter.get("/",controller.welcome)
 
 module.exports = userRouter

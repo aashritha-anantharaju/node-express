@@ -1,15 +1,9 @@
 const express = require('express')
 const contactRouter = express.Router()
-const path = require('path')
-const rootDir = require('../utils/filerouter')
+const controller = require('../controllers/contacts')
 
-contactRouter.get("/contact-us",(req,res,next)=>{
-    res.sendFile(path.join(rootDir,"views","Contactus.html"))
+contactRouter.get("/contact-us",controller.contact)
 
-})
-
-contactRouter.post("/contact-us",(req,res,next)=>{
-    res.send(`Will be contacting you soon ${req.body.name}`)
-})
+contactRouter.post("/contact-us",controller.addedcontact)
 
 module.exports = contactRouter
