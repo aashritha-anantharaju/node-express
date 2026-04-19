@@ -3,7 +3,10 @@ const path = require('path');
 const rootDir = require('../utils/filerouter')
 
 exports.welcome=(req,res,next)=>{
-    res.render('home',{name:"Ash"})
+    res.send(
+        `<h1>Welcome to contact us page</h1>
+        <a href="/contact-us">Contact us</a>`
+    )
 }
 
 exports.contact= (req,res,next)=>{
@@ -12,7 +15,7 @@ exports.contact= (req,res,next)=>{
 }
 
 exports.addedcontact =(req,res,next)=>{
-    res.send(`Will be contacting you soon ${req.body.name}`)
+    res.render('addedcontact',{name:req.body.name})
 }
 
 exports.notfound =(req,res,next)=>{
